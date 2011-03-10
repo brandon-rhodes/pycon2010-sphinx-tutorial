@@ -1,0 +1,90 @@
+.. What does reStructured Text look like?  Well, to start with, this
+   paragraph is a comment.  It is introduced by "..", and continues
+   until the indentation level drops back to the level at which the
+   ".." appeared.  Yes, that's right!  The RST format pays attention
+   to indentation, which makes it perfect for Python programmers.
+
+A Simple Example of reStructured Text
+=====================================
+
+The first thing that you will probably notice about this file is how
+titles appear: as text that is underlined with equal signs, dashes, or
+other repeated punctuation on the following line.  If you want your
+biggest titles to look even more impressive in the text file, you can
+give them both an overline *and* an underline.
+
+Emphasis, happily, works like the plain-text email conventions that you
+are (hopefully) already familiar with: something you want in *italics*
+gets surrounded with single asterisks, while words that you want to be
+**bold** get two asterisks around them.
+
+If you want to create a block quote, simply indent.
+
+    Note that levels of indentation are arbitrary; like in Python,
+    it's polite to use a consistent amount of indentation (four spaces
+    seems popular with many people), but your RST will be understood
+    as long as the text is indented somehow.
+
+When quoting bits of program text, using double-backticks will assure
+that your expressions look like ``variable`` names should.  As always
+when writing Python documentation, ``function()`` and ``method()``
+names are easiest to read when they end with a pair of parentheses.
+
+Various Kinds of Lists
+----------------------
+
+Did you notice that?  We created a sub-title, one level below the main
+title, just by using a different "style" (we used dashes beneath it
+rather than equal signs).  An RST processor keeps up with each style you
+use, so that it automatically learns how you are denoting each level of
+heading as it reads your document.
+
+But, on to the subject of this section: the various kinds of lists that
+RST supports.  As with block quotes (see above), indentation is key.
+
+* Lists are a series of paragraphs which each begin with a bullet.
+* The bullet can be a dash, plus sign, or asterisk.
+* If an item is too long to fit on one line, just indent its following
+  lines to make them part of the same bullet item, pretty much like you
+  would do anyway when writing an email or normal text file.
+
+If your list items are not all one line long, it can be easier to read
+your list as plain text if you put some blank lines between the list
+items; the RST processor will be happy either way.  Also, some lists
+benefit from numbering.  By simply using bullets like "1.", "A.", or
+"a.", you can create "enumerated" lists of various styles.  Note that
+RST only pays attention to the *style* you are designating with the
+bullet; it will replace the actual text of your number or letter with
+the correct number or letter for wherever your are in the list.
+
+Note that, by indenting, you can put lists inside of lists.  One hint:
+you should *not* indent a whole list with space in front.
+
+ * If you put whitespace in front of the bullet, then RST thinks you
+   have started a block quote.  Thus, this is a list placed *inside*
+   of a block quote, which can look a bit odd in HTML.
+
+ * So: do *not* do this.  Line up each "*" with the left edge of the
+   paragraph immediately preceding the list.
+
+Code blocks
+-----------
+
+If you supply a Python code snippet that starts with a Python prompt,
+RST will automatically realize that it is not a normal paragraph.
+
+>>> 1 + 1
+2
+
+Code snippets that start with another symbol or word, however, need to
+be preceded by a double colon at the end of paragraph that precedes the
+code (don't worry; RST will turn it into a normal, single colon in the
+output)::
+
+    print "Hello, world!"
+
+But if the diction of the paragraph would make it awkward to end with a
+colon, you can make the double-colon its own word, hanging off the end
+of the paragraph, and it will not be printed in the output. ::
+
+    print "The end!"
